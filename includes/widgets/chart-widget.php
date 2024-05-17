@@ -15,11 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class SR_Elementor_Chart_Widget extends \Elementor\Widget_Base {
 
 	public function get_name() {
-		return 'bar-chart';
+		return 'chart-1-bar';
 	}
 
 	public function get_title() {
-		return esc_html__( 'Bar Chart', 'sr-chart-addon' );
+		return esc_html__( 'Bar Charts', 'sr-chart-addon' );
 	}
 
 	public function get_icon() {
@@ -49,6 +49,24 @@ class SR_Elementor_Chart_Widget extends \Elementor\Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'sr_chart_title',
+			[
+				'label' => esc_html__( 'Chart Title', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__( 'Default title', 'textdomain' ),
+				'placeholder' => esc_html__( 'Type your title here', 'textdomain' ),
+				'label_block' => true
+			]
+		);
+
+		
+		$this->add_control(
+			'sr_chart_title_after_divider',
+			[
+				'type' => \Elementor\Controls_Manager::DIVIDER,
+			]
+		);
 
         $this->add_control(
 			'list',
@@ -160,7 +178,7 @@ class SR_Elementor_Chart_Widget extends \Elementor\Widget_Base {
 				legend: {display: false},
 				title: {
 				display: true,
-				text: "World Wine Production 2018"
+				text: "<?= $settings['sr_chart_title']; ?>"
 				}
 			}
 			});

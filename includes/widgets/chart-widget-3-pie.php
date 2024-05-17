@@ -15,11 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class SR_Elementor_Chart_Widget_2 extends \Elementor\Widget_Base {
 
 	public function get_name() {
-		return 'chart-2-scatter';
+		return 'chart-3-pie';
 	}
 
 	public function get_title() {
-		return esc_html__( 'Scatter Plot Chart', 'sr-chart-addon' );
+		return esc_html__( 'Pie Charts', 'sr-chart-addon' );
 	}
 
 	public function get_icon() {
@@ -31,7 +31,7 @@ class SR_Elementor_Chart_Widget_2 extends \Elementor\Widget_Base {
 	}
 
 	public function get_keywords() {
-		return [ 'chart', 'scatter' ];
+		return [ 'chart', 'pie' ];
 	}
 
 	public function get_custom_help_url() {
@@ -42,9 +42,9 @@ class SR_Elementor_Chart_Widget_2 extends \Elementor\Widget_Base {
 	protected function register_controls() {
 
 		$this->start_controls_section(
-			'sr_scatter_section',
+			'sr_pie_chart_section',
 			[
-				'label' => esc_html__( 'Scatter Plot Chart Settings', 'sr-chart-addon' ),
+				'label' => esc_html__( 'Pie Charts Settings', 'sr-chart-addon' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
