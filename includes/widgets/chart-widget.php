@@ -15,11 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class SR_Elementor_Chart_Widget extends \Elementor\Widget_Base {
 
 	public function get_name() {
-		return 'oembed';
+		return 'bar-chart';
 	}
 
 	public function get_title() {
-		return esc_html__( 'SR Chart 1', 'sr-chart-addon' );
+		return esc_html__( 'Bar Chart', 'sr-chart-addon' );
 	}
 
 	public function get_icon() {
@@ -31,7 +31,7 @@ class SR_Elementor_Chart_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_keywords() {
-		return [ 'oembed', 'url', 'link' ];
+		return [ 'bar', 'chart' ];
 	}
 
 	public function get_custom_help_url() {
