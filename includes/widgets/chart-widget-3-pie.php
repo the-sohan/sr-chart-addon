@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class SR_Elementor_Chart_Widget_2 extends \Elementor\Widget_Base {
+class SR_Elementor_Chart_Widget_3 extends \Elementor\Widget_Base {
 
 	public function get_name() {
 		return 'chart-3-pie';
@@ -183,34 +183,38 @@ class SR_Elementor_Chart_Widget_2 extends \Elementor\Widget_Base {
 		}
 		?>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
+        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
-		<canvas id="PlotChart" style="width:100%"></canvas>
+        <script>
+        const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+        const yValues = [55, 49, 44, 24, 15];
+        const barColors = [
+        "#b91d47",
+        "#00aba9",
+        "#2b5797",
+        "#e8c3b9",
+        "#1e7145"
+        ];
 
-		<script>
-
-		var myVariable = JSON.parse('<?= json_encode($testItemsNumber); ?>');
-		var xyValues = myVariable;
-	
-		new Chart("PlotChart", {
-		type: "scatter",
-		data: {
-			datasets: [{
-			pointRadius: 6,
-			pointBackgroundColor: "rgb(0,0,255)",
-			data: xyValues
-			}]
-		},
-		options: {
-			legend: {display: false},
-			scales: {
-			xAxes: [{ticks: {min: <?= $settings['xaxes_min_value']; ?>, max:<?= $settings['xaxes_max_value']; ?>}}],
-			yAxes: [{ticks: {min: <?= $settings['yaxes_min_value']; ?>, max:<?= $settings['yaxes_max_value']; ?>}}],
-			},
-		}
-		});
-		</script>
+        new Chart("myChart", {
+        type: "pie",
+        data: {
+            labels: xValues,
+            datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+            }]
+        },
+        options: {
+            title: {
+            display: true,
+            text: "World Wide Wine Production 2018"
+            }
+        }
+        });
+        </script>
 
 		<?php
 	}

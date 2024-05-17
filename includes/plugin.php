@@ -218,12 +218,14 @@ final class Plugin {
 	 */
 	public function register_widgets( $widgets_manager ) {
 
-		require_once( __DIR__ . '/widgets/chart-widget.php' );
-		require_once( __DIR__ . '/widgets/chart-widget-2.php' );
+		require_once( __DIR__ . '/widgets/chart-widget-1-bar.php' );
+		require_once( __DIR__ . '/widgets/chart-widget-2-scatter.php' );
+		require_once( __DIR__ . '/widgets/chart-widget-3-pie.php' );
 		require_once( __DIR__ . '/widgets/sr-info-box.php' );
 
 		$widgets_manager->register( new SR_Elementor_Chart_Widget() );
 		$widgets_manager->register( new SR_Elementor_Chart_Widget_2() );
+		$widgets_manager->register( new SR_Elementor_Chart_Widget_3() );
 		$widgets_manager->register( new SR_Info_Box_Widget() );
 
 	}

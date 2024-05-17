@@ -33,8 +33,8 @@ add_action( 'plugins_loaded', 'sr_elementor_chart_addon' );
 // Register Scripts
 function Zumper_widget_enqueue_script()
 {   
-	wp_enqueue_style( 'sr_custom_css', plugin_dir_url( __FILE__ ) . 'includes/assets/css/info-box.css', array(), '1.0', 'all' );
-	wp_enqueue_script( 'chartjs_script', plugin_dir_url( __FILE__ ) . 'includes/assets/js/chart.js', 'jquery', '1.0', true );
+	wp_enqueue_style( 'sr-custom-css', plugin_dir_url( __FILE__ ) . 'includes/assets/css/info-box.css', array(), '1.0', 'all' );
+	wp_enqueue_script( 'chartjs-script', plugin_dir_url( __FILE__ ) . 'includes/assets/js/chart.js', 'jquery', '2.9.4', true );
 }
 add_action( 'wp_enqueue_scripts', 'Zumper_widget_enqueue_script' );
 
