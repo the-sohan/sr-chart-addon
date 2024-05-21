@@ -54,10 +54,11 @@ class SR_Elementor_Chart_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Choose a style', 'textdomain' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => '1',
+				'default' => 'bar',
 				'options' => [
-					'1' => esc_html__( 'Bar Chart', 'textdomain' ),
-					'2' => esc_html__( 'Pie Chart', 'textdomain' ),
+					'bar' => esc_html__( 'Bar Chart', 'textdomain' ),
+					'pie' => esc_html__( 'Pie Chart', 'textdomain' ),
+					'doughnut' => esc_html__( 'Doughnut Pie Chart', 'textdomain' ),
 				]
 			]
 		);
@@ -138,10 +139,14 @@ class SR_Elementor_Chart_Widget extends \Elementor\Widget_Base {
 			return;
 		}
 
-		if ( $settings['sr_chart_type'] == '1' ) {
+		if ( $settings['sr_chart_type'] == 'bar' ) {
 			$chart_type = 'bar';
-		} else {
+		} else if ( $settings['sr_chart_type'] == 'pie' ) {
 			$chart_type = 'pie';
+		} else if ( $settings['sr_chart_type'] == 'doughnut' ) {
+			$chart_type = 'doughnut';
+		} else {
+			return;
 		}
 
 		$listItemsText=[];

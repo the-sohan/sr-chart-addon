@@ -199,9 +199,9 @@ class SR_Elementor_Chart_Widget_2 extends \Elementor\Widget_Base {
 		type: "scatter",
 		data: {
 			datasets: [{
-			pointRadius: 6,
-			pointBackgroundColor: "rgb(0,0,255)",
-			data: xyValues
+				pointRadius: 6,
+				pointBackgroundColor: "rgb(0,0,255)",
+				data: xyValues
 			}]
 		},
 		options: {
