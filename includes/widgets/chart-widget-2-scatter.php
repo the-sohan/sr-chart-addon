@@ -190,8 +190,7 @@ class SR_Elementor_Chart_Widget_2 extends \Elementor\Widget_Base {
 
 		<script>
 
-		var myVariable = JSON.parse('<?= json_encode($testItemsNumber); ?>');
-		var xyValues = myVariable;
+		var xyValues = JSON.parse('<?= json_encode($testItemsNumber); ?>');
 	
 		new Chart("PlotChart", {
 		type: "scatter",

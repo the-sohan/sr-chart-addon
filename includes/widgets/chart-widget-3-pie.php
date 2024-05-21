@@ -185,7 +185,7 @@ class SR_Elementor_Chart_Widget_3 extends \Elementor\Widget_Base {
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
-        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+        <canvas id="myChart" style="width:100%"></canvas>
 
         <script>
         const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
@@ -207,12 +207,7 @@ class SR_Elementor_Chart_Widget_3 extends \Elementor\Widget_Base {
             data: yValues
             }]
         },
-        options: {
-            title: {
-            display: true,
-            text: "World Wide Wine Production 2018"
-            }
-        }
+        
         });
         </script>
 

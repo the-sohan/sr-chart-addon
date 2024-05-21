@@ -50,13 +50,15 @@ class SR_Elementor_Chart_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'sr_chart_title',
+			'sr_chart_type',
 			[
-				'label' => esc_html__( 'Chart Title', 'textdomain' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Default title', 'textdomain' ),
-				'placeholder' => esc_html__( 'Type your title here', 'textdomain' ),
-				'label_block' => true
+				'label' => esc_html__( 'Choose a style', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => '1',
+				'options' => [
+					'1' => esc_html__( 'Bar Chart', 'textdomain' ),
+					'2' => esc_html__( 'Pie Chart', 'textdomain' ),
+				]
 			]
 		);
 
@@ -136,6 +138,12 @@ class SR_Elementor_Chart_Widget extends \Elementor\Widget_Base {
 			return;
 		}
 
+		if ( $settings['sr_chart_type'] == '1' ) {
+			$chart_type = 'bar';
+		} else {
+			$chart_type = 'pie';
+		}
+
 		$listItemsText=[];
 		$listItemsNumber=[];
 		$listItemsColor=[];
@@ -148,25 +156,18 @@ class SR_Elementor_Chart_Widget extends \Elementor\Widget_Base {
 			
 		endforeach; ?>
 
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
         <canvas id="myChart" style="width:100%;"></canvas>
              
         <script>
 			
-			var myVariable = JSON.parse('<?= json_encode($listItemsText); ?>');
-			var xValues = myVariable;
-		
-			var myVariable2 = JSON.parse('<?= json_encode($listItemsNumber); ?>');
-			var yValues = myVariable2;
-			
-			var myVariable3 = JSON.parse('<?= json_encode($listItemsColor); ?>');
-			var barColors = myVariable3;
-
-			// var barColors = ["red", "green","blue","orange","#ddd"];
+			const xValues = JSON.parse('<?= json_encode($listItemsText); ?>');
+			const yValues = JSON.parse('<?= json_encode($listItemsNumber); ?>');
+			const barColors = JSON.parse('<?= json_encode($listItemsColor); ?>');
 
 			new Chart("myChart", {
-			type: "bar",
+			type: "<?= $chart_type; ?>",
 			data: {
 				labels: xValues,
 				datasets: [{
@@ -175,12 +176,10 @@ class SR_Elementor_Chart_Widget extends \Elementor\Widget_Base {
 				}]
 			},
 			options: {
-				legend: {display: false},
-				title: {
-				display: true,
-				text: "<?= $settings['sr_chart_title']; ?>"
-				}
+			legend: {display: false },
+			
 			}
+			
 			});
 
         </script>
