@@ -166,9 +166,9 @@ class SR_Elementor_Chart_Widget extends \Elementor\Widget_Base {
              
         <script>
 			
-			var xValues = JSON.parse('<?= json_encode($listItemsText); ?>');
-			var yValues = JSON.parse('<?= json_encode($listItemsNumber); ?>');
-			var barColors = JSON.parse('<?= json_encode($listItemsColor); ?>');
+			const xValues = JSON.parse('<?= json_encode($listItemsText); ?>');
+			const yValues = JSON.parse('<?= json_encode($listItemsNumber); ?>');
+			const barColors = JSON.parse('<?= json_encode($listItemsColor); ?>');
 
 			new Chart("<?= $chart_id; ?>", {
 			type: "<?= $chart_type; ?>",
@@ -180,14 +180,12 @@ class SR_Elementor_Chart_Widget extends \Elementor\Widget_Base {
 				}]
 			},
 			options: {
-			legend: {display: false },
-			
+				legend: {display: true},
 			}
 			
 			});
 
         </script>
-
 
 
 		
