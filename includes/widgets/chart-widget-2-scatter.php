@@ -181,18 +181,21 @@ class SR_Elementor_Chart_Widget_2 extends \Elementor\Widget_Base {
 		foreach ($settings['list'] as $index => $item) {
 			$testItemsNumber[] = array("x" => $item['text'], "y" => $item['text2']);
 		}
+
+		$chart_id = 'chartID'. rand();
+
 		?>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 
-		<canvas id="PlotChart" style="width:100%"></canvas>
+		<canvas id="<?php echo $chart_id; ?>" style="width:100%"></canvas>
 
 		<script>
 
 		var xyValues = JSON.parse('<?= json_encode($testItemsNumber); ?>');
 	
-		new Chart("PlotChart", {
+		new Chart("<?php echo $chart_id; ?>", {
 		type: "scatter",
 		data: {
 			datasets: [{

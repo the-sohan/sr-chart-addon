@@ -154,19 +154,23 @@ class SR_Elementor_Chart_Widget extends \Elementor\Widget_Base {
 			array_push( $listItemsNumber, $item['number'] );
 			array_push( $listItemsColor, $item['color'] );
 			
-		endforeach; ?>
+		endforeach; 
+		
+		$chart_id = 'chartID'. rand();
+
+		?>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
-        <canvas id="myChart" style="width:100%;"></canvas>
+        <canvas id="<?php echo $chart_id; ?>" style="width:100%;"></canvas>
              
         <script>
 			
-			const xValues = JSON.parse('<?= json_encode($listItemsText); ?>');
-			const yValues = JSON.parse('<?= json_encode($listItemsNumber); ?>');
-			const barColors = JSON.parse('<?= json_encode($listItemsColor); ?>');
+			var xValues = JSON.parse('<?= json_encode($listItemsText); ?>');
+			var yValues = JSON.parse('<?= json_encode($listItemsNumber); ?>');
+			var barColors = JSON.parse('<?= json_encode($listItemsColor); ?>');
 
-			new Chart("myChart", {
+			new Chart("<?= $chart_id; ?>", {
 			type: "<?= $chart_type; ?>",
 			data: {
 				labels: xValues,
