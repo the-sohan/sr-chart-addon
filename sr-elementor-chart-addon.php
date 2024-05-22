@@ -22,6 +22,8 @@ function sr_elementor_chart_addon() {
 	// Load plugin file
 	require_once( __DIR__ . '/includes/plugin.php' );
 
+
+
 	// Run the plugin
 	\SR_Elementor_Chart_Addon\Plugin::instance();
 
@@ -33,8 +35,26 @@ add_action( 'plugins_loaded', 'sr_elementor_chart_addon' );
 // Register Scripts
 function Zumper_widget_enqueue_script()
 {   
-	wp_enqueue_style( 'sr-custom-css', plugin_dir_url( __FILE__ ) . 'includes/assets/css/info-box.css', array(), '1.0', 'all' );
+	wp_enqueue_style( 'sr-info-box', plugin_dir_url( __FILE__ ) . 'includes/assets/css/info-box.css', array(), '1.0', 'all' );
+	wp_enqueue_style( 'sr-chart-custom', plugin_dir_url( __FILE__ ) . 'includes/assets/css/admin.css', array(), '1.0', 'all' );
 	wp_enqueue_script( 'chartjs-script', plugin_dir_url( __FILE__ ) . 'includes/assets/js/chart.js', 'jquery', '2.9.4', true );
 }
 add_action( 'wp_enqueue_scripts', 'Zumper_widget_enqueue_script' );
+
+
+// Include the admin settings
+include_once plugin_dir_path(__FILE__) . 'admin/admin-menu.php';
+
+// Use the switch state in your plugin
+add_action('init', 'ssp_check_switch_state');
+
+
+function ssp_check_switch_state() {
+    if (get_option('ssp_option')) {
+        
+    } else {
+        
+    }
+}
+
 

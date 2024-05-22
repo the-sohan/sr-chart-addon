@@ -223,8 +223,12 @@ final class Plugin {
 		require_once( __DIR__ . '/widgets/chart-widget-3-pie.php' );
 		require_once( __DIR__ . '/widgets/sr-info-box.php' );
 
-		$widgets_manager->register( new SR_Elementor_Chart_Widget() );
-		$widgets_manager->register( new SR_Elementor_Chart_Widget_2() );
+		if (get_option('ssp_option')) {
+			$widgets_manager->register( new SR_Elementor_Bar_Chart() );
+		} 
+
+		// $widgets_manager->register( new SR_Elementor_Chart_Widget() );
+		$widgets_manager->register( new SR_Elementor_Chart_Scatter() );
 		$widgets_manager->register( new SR_Elementor_Chart_Widget_3() );
 		$widgets_manager->register( new SR_Info_Box_Widget() );
 

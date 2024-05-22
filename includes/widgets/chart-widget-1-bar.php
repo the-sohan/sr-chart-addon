@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class SR_Elementor_Chart_Widget extends \Elementor\Widget_Base {
+class SR_Elementor_Bar_Chart extends \Elementor\Widget_Base {
 
 	public function get_name() {
 		return 'chart-1-bar';

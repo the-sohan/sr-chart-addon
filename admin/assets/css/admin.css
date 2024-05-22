@@ -1,0 +1,10 @@
+.sr-admin-admin-setting-form table.form-table tbody {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.sr-admin-admin-setting-form table.form-table tr {
+    background-color: #fff;
+    padding: 0px 0px 0px 15px;
+}
