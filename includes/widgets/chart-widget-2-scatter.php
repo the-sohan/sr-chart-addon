@@ -44,7 +44,7 @@ class SR_Elementor_Chart_Scatter extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'sr_scatter_section',
 			[
-				'label' => esc_html__( 'Scatter Plot Chart Settings', 'sr-chart-addon' ),
+				'label' => esc_html__( 'Scatter Plot Chart Content', 'sr-chart-addon' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);

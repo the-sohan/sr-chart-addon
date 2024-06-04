@@ -19,7 +19,7 @@ class SR_Elementor_Bar_Chart extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Bar Charts', 'sr-chart-addon' );
+		return esc_html__( 'Basic Charts', 'sr-chart-addon' );
 	}
 
 	public function get_icon() {
@@ -31,7 +31,7 @@ class SR_Elementor_Bar_Chart extends \Elementor\Widget_Base {
 	}
 
 	public function get_keywords() {
-		return [ 'bar', 'chart' ];
+		return [ 'bar', 'chart', 'doughnut ' ];
 	}
 
 	public function get_custom_help_url() {
@@ -74,46 +74,56 @@ class SR_Elementor_Bar_Chart extends \Elementor\Widget_Base {
         $this->add_control(
 			'list',
 			[
-				'label' => esc_html__( 'List', 'sr-chart-addon' ),
+				'label' => esc_html__( 'Chart List', 'sr-chart-addon' ),
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => [
 					[
 						'name' => 'text',
-						'label' => esc_html__( 'Text', 'sr-chart-addon' ),
+						'label' => esc_html__( 'Label', 'sr-chart-addon' ),
 						'type' => \Elementor\Controls_Manager::TEXT,
 						'placeholder' => esc_html__( 'List Item', 'sr-chart-addon' ),
 						'default' => esc_html__( 'List Item', 'sr-chart-addon' ),
 					],
 					[
 						'name' => 'number',
-						'label' => esc_html__( 'Number', 'sr-chart-addon' ),
+						'label' => esc_html__( 'Value', 'sr-chart-addon' ),
 						'type' => \Elementor\Controls_Manager::NUMBER,
-						'step' => 5,
+						'step' => 1,
 						'default' => 10,
 					],
 					[
-						'name' => 'color',
-						'label' => esc_html__( 'Color (Type color name or code)', 'sr-chart-addon' ),
-						'type' => \Elementor\Controls_Manager::TEXT,
-						'placeholder' => esc_html__( 'color', 'sr-chart-addon' ),
-						'default' => esc_html__( 'red', 'sr-chart-addon' ),
-					],
-					[
-						'name' => 'colorpics',
+						'name' => 'bar_color',
 						'type' => \Elementor\Controls_Manager::COLOR,
-						'label' => esc_html__( 'Copy color from here and paste above', 'sr-chart-addon' ),
-						'default' => '#ddd',
-					],
+						'label' => esc_html__( 'Text Color', 'sr-chart-addon' ),
+						'default' => '#fefefe',
+					]
 
 				],
 				'default' => [
 					[
-						'text' => esc_html__( 'List Item #1', 'sr-chart-addon' ),
-						
+						'text' => esc_html__( 'Italy', 'sr-chart-addon' ),
+						'number' => '55',
+						'bar_color' => '#b91d47',
 					],
 					[
-						'text' => esc_html__( 'List Item #2', 'sr-chart-addon' ),
-						
+						'text' => esc_html__( 'France', 'sr-chart-addon' ),
+						'number' => '49',
+						'bar_color' => '#00aba9',
+					],
+					[
+						'text' => esc_html__( 'Spain', 'sr-chart-addon' ),
+						'number' => '44',
+						'bar_color' => '#2b5797',
+					],
+					[
+						'text' => esc_html__( 'USA', 'sr-chart-addon' ),
+						'number' => '24',
+						'bar_color' => '#e8c3b9',
+					],
+					[
+						'text' => esc_html__( 'Argentina', 'sr-chart-addon' ),
+						'number' => '15',
+						'bar_color' => '#1e7145',
 					],
 				],
 				'title_field' => '{{{ text }}}',
@@ -157,7 +167,7 @@ class SR_Elementor_Bar_Chart extends \Elementor\Widget_Base {
 			
 			array_push( $listItemsText, $item['text'] );
 			array_push( $listItemsNumber, $item['number'] );
-			array_push( $listItemsColor, $item['color'] );
+			array_push( $listItemsColor, $item['bar_color'] );
 			
 		endforeach; 
 		

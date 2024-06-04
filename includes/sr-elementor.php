@@ -229,6 +229,7 @@ final class SR_Elementor {
 
 		// $widgets_manager->register( new SR_Elementor_Chart_Widget() );
 		$widgets_manager->register( new SR_Elementor_Chart_Scatter() );
+		$widgets_manager->register( new SR_Elementor_Bar_Chart() );
 		$widgets_manager->register( new SR_Elementor_Chart_Widget_3() );
 		$widgets_manager->register( new SR_Info_Box_Widget() );
 
