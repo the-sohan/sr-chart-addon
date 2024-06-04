@@ -19,7 +19,7 @@ class SR_Elementor_Chart_Line extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Sr Chart 3 Line', 'sr-chart-addon' );
+		return esc_html__( 'Line Chart', 'sr-chart-addon' );
 	}
 
 	public function get_icon() {

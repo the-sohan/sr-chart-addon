@@ -186,7 +186,7 @@ class SR_Elementor_Bar_Chart extends \Elementor\Widget_Base {
 			const barColors = JSON.parse('<?= json_encode($listItemsColor); ?>');
 
 			new Chart("<?= $chart_id; ?>", {
-			type: "line",
+			type: "<?= $chart_type; ?>",
 			data: {
 				labels: xValues,
 				datasets: [{
