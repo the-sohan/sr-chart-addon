@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: SR Elementor Chart Addon
+ * Plugin Name: SR Chart List
  * Description: Custom Elementor addon.
  * Plugin URI:  https://elementor.com/
  * Version:     1.0.0
