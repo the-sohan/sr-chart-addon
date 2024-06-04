@@ -172,6 +172,8 @@ class SR_Elementor_Bar_Chart extends \Elementor\Widget_Base {
 		endforeach; 
 		
 		$chart_id = 'chartID'. rand();
+		$xValues = 'xValues'. rand();
+		$yValues = 'yValues'. rand();
 
 		?>
 
@@ -181,17 +183,17 @@ class SR_Elementor_Bar_Chart extends \Elementor\Widget_Base {
              
         <script>
 			
-			const xValues = JSON.parse('<?= json_encode($listItemsText); ?>');
-			const yValues = JSON.parse('<?= json_encode($listItemsNumber); ?>');
+			const <?= $xValues ?> = JSON.parse('<?= json_encode($listItemsText); ?>');
+			const <?= $yValues ?> = JSON.parse('<?= json_encode($listItemsNumber); ?>');
 			const barColors = JSON.parse('<?= json_encode($listItemsColor); ?>');
 
 			new Chart("<?= $chart_id; ?>", {
 			type: "<?= $chart_type; ?>",
 			data: {
-				labels: xValues,
+				labels: <?= $xValues ?>,
 				datasets: [{
 				backgroundColor: barColors,
-				data: yValues
+				data: <?= $yValues ?>
 				}]
 			},
 			options: {

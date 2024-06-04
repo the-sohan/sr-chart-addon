@@ -183,6 +183,8 @@ class SR_Elementor_Chart_Line extends \Elementor\Widget_Base {
 		endforeach; 
 		
 		$chart_id = 'chartID'. rand();
+		$xValues = 'xValues'. rand();
+		$yValues = 'yValues'. rand();
 
 		?>
 
@@ -192,19 +194,19 @@ class SR_Elementor_Chart_Line extends \Elementor\Widget_Base {
              
         <script>
 			
-			const xValues = JSON.parse('<?= json_encode($listXvalue); ?>');
-			const yValues = JSON.parse('<?= json_encode($listYvalue); ?>');
+			const <?= $xValues ?> = JSON.parse('<?= json_encode($listXvalue); ?>');
+			const <?= $yValues ?> = JSON.parse('<?= json_encode($listYvalue); ?>');
 
 			new Chart("<?= $chart_id; ?>", {
 			type: "line",
 			data: {
-				labels: xValues,
+				labels: <?= $xValues ?>,
 				datasets: [{
 					fill: false,
 					lineTension: 0,
 					backgroundColor: "rgba(0,0,255,1.0)",
 					borderColor: "rgba(0,0,255,0.1)",
-					data: yValues
+					data: <?= $yValues ?>
 				}]
 			},
 			options: {
