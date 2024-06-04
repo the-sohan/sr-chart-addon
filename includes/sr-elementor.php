@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-final class Plugin {
+final class SR_Elementor {
 
 	/**
 	 * Addon Version
@@ -44,7 +44,7 @@ final class Plugin {
 	 * @since 1.0.0
 	 * @access private
 	 * @static
-	 * @var \Elementor_Test_Addon\Plugin The single instance of the class.
+	 * @var \Elementor_Test_Addon\SR_Elementor The single instance of the class.
 	 */
 	private static $_instance = null;
 
@@ -56,7 +56,7 @@ final class Plugin {
 	 * @since 1.0.0
 	 * @access public
 	 * @static
-	 * @return \Elementor_Test_Addon\Plugin An instance of the class.
+	 * @return \Elementor_Test_Addon\SR_Elementor An instance of the class.
 	 */
 	public static function instance() {
 

@@ -20,12 +20,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 function sr_elementor_chart_addon() {
 
 	// Load plugin file
-	require_once( __DIR__ . '/includes/plugin.php' );
+	require_once( __DIR__ . '/includes/sr-elementor.php' );
 
 
 
 	// Run the plugin
-	\SR_Elementor_Chart_Addon\Plugin::instance();
+	\SR_Elementor_Chart_Addon\SR_Elementor::instance();
 
 }
 add_action( 'plugins_loaded', 'sr_elementor_chart_addon' );
