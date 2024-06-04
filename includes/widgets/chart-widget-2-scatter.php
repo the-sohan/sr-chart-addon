@@ -183,6 +183,7 @@ class SR_Elementor_Chart_Scatter extends \Elementor\Widget_Base {
 		}
 
 		$chart_id = 'chartID'. rand();
+		$xyValues = 'xyValues'. rand();
 
 		?>
 
@@ -193,7 +194,7 @@ class SR_Elementor_Chart_Scatter extends \Elementor\Widget_Base {
 
 		<script>
 
-		var xyValues = JSON.parse('<?= json_encode($testItemsNumber); ?>');
+		const <?= $xyValues ?> = JSON.parse('<?= json_encode($testItemsNumber); ?>');
 	
 		new Chart("<?php echo $chart_id; ?>", {
 		type: "scatter",
@@ -201,7 +202,7 @@ class SR_Elementor_Chart_Scatter extends \Elementor\Widget_Base {
 			datasets: [{
 				pointRadius: 6,
 				pointBackgroundColor: "rgb(0,0,255)",
-				data: xyValues
+				data: <?= $xyValues ?>
 			}]
 		},
 		options: {
