@@ -220,17 +220,16 @@ final class SR_Elementor {
 
 		require_once( __DIR__ . '/widgets/chart-widget-1-bar.php' );
 		require_once( __DIR__ . '/widgets/chart-widget-2-scatter.php' );
-		require_once( __DIR__ . '/widgets/chart-widget-3-pie.php' );
+		require_once( __DIR__ . '/widgets/chart-widget-3-line.php' );
 		require_once( __DIR__ . '/widgets/sr-info-box.php' );
 
-		if (get_option('ssp_option')) {
+		if (get_option('ssp_option_1')) {
 			$widgets_manager->register( new SR_Elementor_Bar_Chart() );
 		} 
 
-		// $widgets_manager->register( new SR_Elementor_Chart_Widget() );
-		$widgets_manager->register( new SR_Elementor_Chart_Scatter() );
 		$widgets_manager->register( new SR_Elementor_Bar_Chart() );
-		$widgets_manager->register( new SR_Elementor_Chart_Widget_3() );
+		$widgets_manager->register( new SR_Elementor_Chart_Scatter() );
+		$widgets_manager->register( new SR_Elementor_Chart_Line() );
 		$widgets_manager->register( new SR_Info_Box_Widget() );
 
 	}

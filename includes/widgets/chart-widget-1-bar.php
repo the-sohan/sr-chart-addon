@@ -42,9 +42,9 @@ class SR_Elementor_Bar_Chart extends \Elementor\Widget_Base {
 	protected function register_controls() {
 
 		$this->start_controls_section(
-			'content_section',
+			'basic_chart_content',
 			[
-				'label' => esc_html__( 'Content', 'sr-chart-addon' ),
+				'label' => esc_html__( 'Chart Content', 'sr-chart-addon' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -94,7 +94,7 @@ class SR_Elementor_Bar_Chart extends \Elementor\Widget_Base {
 					[
 						'name' => 'bar_color',
 						'type' => \Elementor\Controls_Manager::COLOR,
-						'label' => esc_html__( 'Text Color', 'sr-chart-addon' ),
+						'label' => esc_html__( 'Background Color', 'sr-chart-addon' ),
 						'default' => '#fefefe',
 					]
 
@@ -186,7 +186,7 @@ class SR_Elementor_Bar_Chart extends \Elementor\Widget_Base {
 			const barColors = JSON.parse('<?= json_encode($listItemsColor); ?>');
 
 			new Chart("<?= $chart_id; ?>", {
-			type: "<?= $chart_type; ?>",
+			type: "line",
 			data: {
 				labels: xValues,
 				datasets: [{
